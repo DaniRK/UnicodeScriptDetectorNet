@@ -50,7 +50,7 @@ namespace UnicodeScriptDetectorNet
         }
 
         /// <summary>
-        /// Returns a list of possible "writing scripts" (like 'Latin', 'Arabic') that might have been used to write the specified text, together with a probablity of for each
+        /// Returns a list of possible "writing scripts" (like 'Latin', 'Arabic') that might have been used to write the specified text, together with a probablity for each
         /// Multiple scripts may be returned if a text either is composed of mixed scripts OR if only codePoints where used that belong
         /// to multiple scripts.
         /// An empty list will be returned if no script at all could be detected (such as "123," which only contains 'common' codepoints)

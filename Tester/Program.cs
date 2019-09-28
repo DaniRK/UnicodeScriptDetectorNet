@@ -49,6 +49,13 @@ namespace Tester
             results = UnicodeScriptDetector.GetUsedScripts("אa\u0300"); // אà
 
 
+
+            results = UnicodeScriptDetector.GetUsedScripts("Hello translates in Hebrew to: שלום");
+            foreach(var r in results)
+            {
+                Console.WriteLine($"Script short code: {r.scriptNameShort}, long code {r.scriptNameLong}, probablity:{r.propabilty}");
+            }
+
         }
     }
 }
