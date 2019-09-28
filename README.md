@@ -1,10 +1,11 @@
 ﻿# UnicodeScriptDetectorNet
 This solution consists of two parts: 
 * UnicodeScriptDetector: the actual .net library. 
-* ImportDataToCSharp: a console app to import newer data files from the Unicode consortium and produces a C# code file (Initialize.cs)  containing data initialization that is then used in the UnicodeScriptDetector project. 
+* ImportDataToCSharp: Produces a C# code file (Initialize.cs) based on newest Unicode consortium data, that is then used in the UnicodeScriptDetector project. 
 
 
-#### NuGet: UnicodeScriptDetectorNet
+### NuGet:
+UnicodeScriptDetectorNet
 
 ### Usage:
 
