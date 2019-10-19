@@ -65,11 +65,6 @@ An empty list will be returned if the string is null or empty or if no script at
 
     results = UnicodeScriptDetector.GetUsedScripts("אa\u0300", ignoreInherited: false); // אà
 
-    results = UnicodeScriptDetector.GetUsedScripts("Hello translates in Hebrew to: שלום");
-    foreach(var r in results)
-    {
-        Console.WriteLine($"Script short code: {r.scriptNameShort}, long code {r.scriptNameLong}, probablity:{r.probabilty}");
-    }
 
 
 

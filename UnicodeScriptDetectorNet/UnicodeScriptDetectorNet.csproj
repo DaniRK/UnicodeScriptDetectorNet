@@ -13,7 +13,7 @@ Implemented as standard library 2.0.</Description>
     <Version>1.2.0.0</Version>
     <AssemblyVersion>1.2.0.0</AssemblyVersion>
     <FileVersion>1.2.0.0</FileVersion>
-    <PackageTags>Unicode writing scripts writing-scripts detection algorithm library</PackageTags>
+    <PackageTags>Unicode writing scripts writing-scripts detection algorithm library alphabet</PackageTags>
     <PackageReleaseNotes>New detection methods IsInScript(), ProbablyInScript()
 New methods to get a copy of the underlying Unicode data structures.
 New support of Unicode extended properties.
