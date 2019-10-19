@@ -26,14 +26,6 @@ namespace Tester
             results = UnicodeScriptDetector.GetUsedScripts("שש123456ששAü");
 
 
-            // 1 latin characters, 1 hebrew, and a COMBINING GRAVE ACCENT (draws a ` above the preceeding character),
-            // which inherits the script of the preceeding char
-            // since the accent follows an hebrew char, it is counted as hebrew, too. Total relevant chars = 3
-            // should yield Hebrew 0.666, Latin 0.33
-
-            results = UnicodeScriptDetector.GetUsedScripts("aא\u0300", ignoreInherited:false); // aא̀
-
-
 
             // using default ignoreInherited parameter (true)
             // 1 latin characters, 1 hebrew, and a COMBINING GRAVE ACCENT (draws a ` above the preceeding character),
