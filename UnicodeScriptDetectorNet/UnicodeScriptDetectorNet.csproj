@@ -13,13 +13,13 @@ Implemented as standard library 2.0.</Description>
     <Version>1.2.0.0</Version>
     <AssemblyVersion>1.2.0.0</AssemblyVersion>
     <FileVersion>1.2.0.0</FileVersion>
-    <PackageTags>Unicode writing scripts</PackageTags>
-    <PackageReleaseNotes>New methods IsInScript(), ProbablyInScript() and GetScriptNames().
-New methods to get a copy of the underlying Unicode data structures
+    <PackageTags>Unicode writing scripts writing-scripts detection algorithm library</PackageTags>
+    <PackageReleaseNotes>New detection methods IsInScript(), ProbablyInScript()
+New methods to get a copy of the underlying Unicode data structures.
 New support of Unicode extended properties.
-Allow for strings including character code points &gt; 0xFFFF 
-Minor bug fixing</PackageReleaseNotes>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+Allow for strings including character code points &gt; 0xFFFF .
+Minor bug fixing.</PackageReleaseNotes>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://github.com/DaniRK/UnicodeScriptDetectorNet</PackageProjectUrl>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
