@@ -11,9 +11,7 @@ namespace UnicodeScriptDetectorNet
 {
     static public partial class UnicodeScriptDetector
     {
-
-        public enum ScriptType { Normal, Common, Inherited, Unknown};
-
+        public enum ScriptType { Normal, Common, Inherited, Unknown };
 
         /// <summary>
         /// One of the writing scripts defined in Unicode
@@ -23,8 +21,8 @@ namespace UnicodeScriptDetectorNet
         {
             public string shortName;
             public string longName;
-            public int tempIndex;   // our internal index. Can change when importing newer version of Unicode data!!! Don't use this value in persistent data!
             public ScriptType type = ScriptType.Normal;
+            public int tempIndex;   // internal index. Can change when importing newer version of Unicode data!!! Don't use this value in persistent data!
         }
 
         /// <summary>
@@ -47,6 +45,9 @@ namespace UnicodeScriptDetectorNet
             public string[] scriptNamesShort;
         }
 
+        /// <summary>
+        /// One of the results returned by detection methods
+        /// </summary>
         public class Result
         {
             public string scriptNameShort;
@@ -56,7 +57,7 @@ namespace UnicodeScriptDetectorNet
 
         public class Results : List<Result> { }
 
-        // short names for special Script names 
+        // short/long  names for special Script names 
 
         public const string ScriptShortInherited = "Zinh"; // Inherited
         public const string ScriptShortCommon = "Zyyy";    // Common
@@ -66,17 +67,18 @@ namespace UnicodeScriptDetectorNet
         public const string ScriptLongCommon = "Common";    // Common
         public const string ScriptLongUnknown = "Unknown";   // Unknown
 
-        //static internal ScriptNames scriptNames;
         static internal Script[] scripts;
-        //static internal CodepointScripts codepointScripts;
         static internal CodepointScript[] codepointScripts;
-        //static internal CodepointScriptsExtended codepointScriptsExtended;
         static internal CodepointScriptExtended[] codepointScriptsExtended;
 
         static UnicodeScriptDetector()
         {
-            InitializeData();
-            foreach(var s in scripts)
+            // call InitializeData() in the partial class file UnicodeScriptDetectorNetInit.cs, 
+            // which was created as output of the ImportDataToCSharp project
+            InitializeData(); 
+
+            // override the default script type for special types
+            foreach (var s in scripts)
             {
                 if (s.shortName == ScriptShortCommon)
                     s.type = ScriptType.Common;
@@ -90,7 +92,7 @@ namespace UnicodeScriptDetectorNet
         }
 
         /// <summary>
-        /// Returns a list of possible "writing scripts" (like 'Latin', 'Arabic') that might have been used to write the specified text, together with a probablity for each
+        /// Return a list of possible "writing scripts" (like 'Latin', 'Arabic') that might have been used to write the specified text, together with a probablity for each
         /// Multiple scripts may be returned if a text either is composed of mixed scripts OR if only codePoints where used that belong
         /// to multiple scripts.
         /// An empty list will be returned if the string is null or empty or if no script at all could be detected (such as "123," which only contains 'common' codepoints)
@@ -215,8 +217,6 @@ namespace UnicodeScriptDetectorNet
             //foreach (char c in testText)
             for (int charIndex = 0; charIndex < testText.Length; charIndex++)
             {
-
-                //var codePoint = Convert.ToInt32(c);
 
                 // .net/windows hold characters as utf16. Unicode codepoints > 0xffff are represented as 
                 // two characters (using surrogates), therefor we cannot just loop through the characters and use their numeric value
@@ -345,5 +345,4 @@ namespace UnicodeScriptDetectorNet
             }
         }
     }
-
 }

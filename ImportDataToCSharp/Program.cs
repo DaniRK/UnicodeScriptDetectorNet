@@ -7,7 +7,6 @@ using System.Text;
 
 namespace ImportDataToCSharp
 {
-
     class Program
     {
         public class Script
@@ -37,14 +36,11 @@ namespace ImportDataToCSharp
         static CodepointScripts codepointScripts = new CodepointScripts();
         static CodepointScriptsExtended codepointScriptsExtended = new CodepointScriptsExtended();
 
-
         static void Main(string[] args)
         {
             LoadFromText();
-            //Test();
             WriteCSharpFile();
             WriteJSONDataDefs();
-
         }
 
         static private void LoadFromText()
@@ -107,7 +103,6 @@ namespace ImportDataToCSharp
                 codepointScriptsRaw.Add(cps);
             }
 
-
             codepointScriptsRaw.Sort((item1, item2) => item1.rangeStart.CompareTo(item2.rangeStart));
 
             lastCps = null;
@@ -161,7 +156,6 @@ namespace ImportDataToCSharp
                 //102E0         ; Arab Copt # Mn       COPTIC EPACT THOUSANDS MARK
                 //102E1..102FB  ; Arab Copt # No  [27] COPTIC EPACT DIGIT ONE..COPTIC EPACT NUMBER NINE HUNDRED
 
-
                 string[] parts = line.Split(';');
                 var r = parts[0];
 
@@ -199,10 +193,8 @@ namespace ImportDataToCSharp
 
                 */
 
-                //codepointScriptsExtended.Insert()
-
                 var cpsExt = new CodepointScriptExtended
-                { rangeStart = rangeStart, rangeEnd = rangeEnd, scriptNamesExtendedShort = scriptNamesShortList/*, tempIndex = scriptName.tempIndex */};
+                { rangeStart = rangeStart, rangeEnd = rangeEnd, scriptNamesExtendedShort = scriptNamesShortList};
 
                 codepointScriptsExtendedRaw.Add(cpsExt);
             }
@@ -243,53 +235,7 @@ namespace ImportDataToCSharp
                     lastCpsExt = newCpsExt;
                 }
             }
-
         }
-
-#if never
-        private static void Test()
-        {
-            // short names for special 
-            const string ScriptInheritedShort = "Zinh"; // Inherited
-            const string ScriptCommonShort = "Zyyy";    // Common
-            const string ScriptUnknownShort = "Zzzz";   // Unknown
-
-            string test = "jkjsad j1 21%^& dsatט";
-
-
-            // buckets
-            int[] buckets = new int[scriptNames.Count];
-
-            foreach (char c in test)
-            {
-                var codePoint = Convert.ToInt32(c);
-                var cps = codepointScripts.Where(cs => cs.rangeStart <= codePoint && cs.rangeEnd >= codePoint).FirstOrDefault();
-                if (cps == null) // not in table, ignore
-                    continue;
-
-                if (cps.scriptNameShort == ScriptCommonShort)
-                    continue;
-                if (cps.scriptNameShort == ScriptInheritedShort)
-                    continue;
-                if (cps.scriptNameShort == ScriptUnknownShort)
-                    continue;
-
-                buckets[cps.tempIndex]++;
-            }
-
-            for (int i = 0; i < buckets.Length; i++)
-            {
-                var bucket = buckets[i];
-                if (bucket > 0)
-                {
-                    float p = (float)bucket / (float)test.Length * 100;
-                    var s = scriptNames.Where(sn => sn.tempIndex == i).First();
-
-                    Console.WriteLine($"script {s.longName}: {p}%");
-                }
-            }
-        }
-#endif
 
         static private void WriteCSharpFile()
         {
@@ -394,7 +340,7 @@ namespace UnicodeScriptDetectorNet
 
             var snsjs = new ScriptNameForJSON[scripts.Count];
 
-            foreach (var sn  in scripts)
+            foreach (var sn in scripts)
             {
                 snsjs[i++] = new ScriptNameForJSON
                 {
@@ -433,8 +379,6 @@ namespace UnicodeScriptDetectorNet
 
             jsonStr = "var codepointScripts = " + jsonStr + ";";
             File.AppendAllText("Output/UnicodeScriptDefs.js", jsonStr);
-
-
         }
     }
 

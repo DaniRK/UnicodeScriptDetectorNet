@@ -128,7 +128,7 @@ For explanation and parameters see the ProbablyInScript method above.
     b = UnicodeScriptDetector.IsInScript(" Abö Abö", "hebrew");
 
 
-### Methods to get the Unicdode data structures
+### Methods to get the Unicode data structures
 These methods can be used to get the underlying Unicode data structures for usage in your application.
 
 They return a copy of the data itself, so modifying them has no impact on the detection methods.
