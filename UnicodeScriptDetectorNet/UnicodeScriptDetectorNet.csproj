@@ -5,15 +5,20 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Dani Kempinski</Authors>
     <Product>UnicodeScriptDetectorNet</Product>
-    <Description>Detects with which Unicode Script(s) a given text is written.
+    <Description>Various methods to detect with which Unicode Script(s) a given text is written.
+Allows to export the contained Unicode data structures to your application as .net classes.
 Based on Unicode v.12.0.0 data files.
 Implemented as standard library 2.0.</Description>
     <Copyright>Dani Kempinski, 2019</Copyright>
-    <Version>1.1.0.1</Version>
-    <AssemblyVersion>1.1.0.0</AssemblyVersion>
-    <FileVersion>1.1.0.0</FileVersion>
+    <Version>1.2.0.0</Version>
+    <AssemblyVersion>1.2.0.0</AssemblyVersion>
+    <FileVersion>1.2.0.0</FileVersion>
     <PackageTags>Unicode writing scripts</PackageTags>
-    <PackageReleaseNotes></PackageReleaseNotes>
+    <PackageReleaseNotes>New methods IsInScript(), ProbablyInScript() and GetScriptNames().
+New methods to get a copy of the underlying Unicode data structures
+New support of Unicode extended properties.
+Allow for strings including character code points &gt; 0xFFFF 
+Minor bug fixing</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://github.com/DaniRK/UnicodeScriptDetectorNet</PackageProjectUrl>
     <PackageLicenseExpression></PackageLicenseExpression>

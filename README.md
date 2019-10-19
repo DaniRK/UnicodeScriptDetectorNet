@@ -9,7 +9,11 @@ UnicodeScriptDetectorNet
 
 ### Usage:
 
-UnicodeScriptDetector.GetUsedScripts method returns a list of possible Unicode "writing scripts" (like 'Latin', 'Arabic', 'Cyrillic') that might have been used to write the specified text, together with a probablity for each.
+There are various detection methods and data extraction methods.
+##### [See here](UnicodeScriptDetectorNet/Examples.md) for a complete list of methods and more examples.
+
+
+As an example, the UnicodeScriptDetector.GetUsedScripts method returns a list of possible Unicode "writing scripts" (like 'Latin', 'Arabic', 'Cyrillic') that might have been used to write the specified text, together with a probablity for each.
 
 The list may contain 0, 1 or multiple results:  
 * 0 result: there is no identication of any script (for example for a string "123 +")  
@@ -31,8 +35,9 @@ Returned script identifiers are the official Unicode short and long names.
     Script short code: Latn, long code Latin, probablity:0.862069  
     Script short code: Hebr, long code Hebrew, probablity:0.137931  
 
-This library is based on data from official data files from the Unicode consortium from version 12.0.
+##### [See here](UnicodeScriptDetectorNet/Examples.md) for explanations and more examples.
+
+This library is based on data from official data files version 12.0 from the Unicode consortium.
 
 For more details of theory and logic: http://www.unicode.org/reports/tr24/  
 
-Note: The current implementation does not offer an option to take into account Script_Extensions properties.

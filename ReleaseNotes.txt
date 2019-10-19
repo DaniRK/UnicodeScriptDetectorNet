@@ -1,0 +1,20 @@
+******** Version 1.2.0.0  2019/10/1 **********
+
+- New test methods IsInScript(), ProbablyInScript()
+
+- New methods to get a copy of the data definitions: GetScripts(), GetCodepointScripts, GetExtendedProperties
+
+- Use Unicode codepoint extended properties
+
+- Range definitions reduced by 50% by consolidating some single ranges, into contiguous larger ones
+
+- allow for strings including character code points > 0xFFFF 
+
+- minor bug fix in the main code point table
+
+******** Version 1.1.0.1  2019/9/27 **********
+Fix some issues in NuGet package
+
+
+******** Version 1.1.0.0  2019/9/27 **********
+First version made public
