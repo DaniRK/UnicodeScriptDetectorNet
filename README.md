@@ -25,7 +25,7 @@ The probablity for each script (>0, <=1) is calculated as the number of characte
 Returned script identifiers are the official Unicode short and long names.
 
 ### Example:  
-    results = UnicodeScriptDetector.GetUsedScripts("Hello translates in Hebrew to: שלום");  
+    var results = UnicodeScriptDetector.GetUsedScripts("Hello translates in Hebrew to: שלום");  
     foreach(var r in results)  
     {  
          Console.WriteLine($"Script short code: {r.scriptNameShort}, long code {r.scriptNameLong}, probablity:{r.propabilty}");  
